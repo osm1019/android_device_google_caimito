@@ -26,26 +26,12 @@ RELEASE_GOOGLE_BOOTLOADER_KOMODO_DIR ?= 24D1# Keep this for pdk TODO: b/32711900
 RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_KOMODO_DIR)
 $(call soong_config_set,caimito_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_KOMODO_DIR))
 
-ifdef RELEASE_KERNEL_KOMODO_VERSION
-TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_KOMODO_VERSION)
-else
-TARGET_LINUX_KERNEL_VERSION ?= 6.1
-endif
 
-ifdef RELEASE_KERNEL_KOMODO_DIR
-TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_KOMODO_DIR)
-TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_KOMODO_DIR)/kernel-headers
-
-ifneq ($(TARGET_BOOTS_16K),true)
-PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_KOMODO_16K_DEVELOPER_OPTION)
-endif
+TARGET_KERNEL_DIR := device/google/caimito-kernels/6.1/25Q1-12919773
+TARGET_BOARD_KERNEL_HEADERS := device/google/caimito-kernels/6.1/25Q1-12919773/kernel-headers
+TARGET_PREBUILT_KERNEL := device/google/caimito-kernels/6.1/25Q1-12919773/Image.lz4
 
 include device/google/caimito/device-caimito-16k-common.mk
-
-else
-TARGET_KERNEL_DIR ?= device/google/caimito-kernels/6.1/24D1
-TARGET_BOARD_KERNEL_HEADERS ?= device/google/caimito-kernels/6.1/24D1/kernel-headers
-endif
 
 LOCAL_PATH := device/google/caimito
 

@@ -1,0 +1,6 @@
+# Configuration for Pixel 9
+ro.infinity.soc=Google Tensor G4
+ro.infinity.battery=4700mAh
+ro.infinity.display=1080x2424, 120Hz
+ro.infinity.camera=50MPMain+40MPUltraWide
+ro.product.marketname=Pixel 9
