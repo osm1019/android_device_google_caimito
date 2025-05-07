@@ -37,8 +37,6 @@ include hardware/google/pixel/powershare/device.mk
 # Pixel overlays
 $(call inherit-product-if-exists, vendor/pixeloverlays/config.mk)
 
-# Pixel Parts
-$(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 
 # Satellite
 PRODUCT_COPY_FILES += \
